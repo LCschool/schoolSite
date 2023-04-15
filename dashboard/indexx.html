@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <style>
+            body {
+                height: 100vh;
+            }
+            .mainBlock {
+                position: relative;
+                width: 400px;
+                height: 150px;
+                border: 2px solid #000;
+                left: calc(50% - 200px);
+                top: calc(50% - 200px);
+            }
+            .labels {
+                position: relative;
+                left: 20%;
+                top: 20%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainBlock">
+            <form id="signIn" method="post" action="signIn.php">
+                <h1 class="labels"> Enter Username:</h1>
+                <input type="text" name="uName" class="labels">
+                <input type="submit" name="submit" class="labels" >
+            </form>
+        </div>
+    </body>
+</html>
