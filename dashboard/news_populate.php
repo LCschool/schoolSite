@@ -7,11 +7,11 @@ function my_autoloader($class)
 
 spl_autoload_register('my_autoloader');
 $articals = [];
-$vars = new news("Terry Simmons", "images\\nws1.jpg", "dicks", "big ones");
+$vars = new news("Terry Simmons", "images,art1.jpg", "dicks", "big ones");
 array_push($articals,$vars);
-$vars = new news("Homer Simpson", "images\\nws2.jpg", "dicks", "big ones");
+$vars = new news("Homer Simpson", "images,art2.jpg", "dicks", "big ones");
 array_push($articals,$vars);
-$vars = new news("Kramer", "images\\nws3.jpg", "dicks", "big ones");
+$vars = new news("Kramer", "images,art3.jpg", "dicks", "big ones");
 array_push($articals,$vars);
 $data = serialize($articals);
 $myfile = "news.byt";

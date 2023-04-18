@@ -1,4 +1,9 @@
-<?php require __DIR__ . '/newsDisplay.php';?>
+<?php
+
+require __DIR__ . '/news.php';
+
+$_SESSION["articles"] = new articleSet();
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -23,23 +28,28 @@
             </li>
         </ul>
     </div>
+    <div class = "newsArt">
+        <div class="newsDisplay" xmlns="http://www.w3.org/1999/html">
+            <img id = "nI" src="" alt="News Article Image">
+            <h2 id = "nH"><?php echo $_SESSION["articles"]->getCurrentHeader()?></h2>
+            <p id = "nA"><?php echo $_SESSION["articles"]->getCurrentAuthor()?></p>
+            <p id = "nT"><?php echo $_SESSION["articles"]->getCurrentText()?></p>
+        </div>
+    </div>
 
 </div>
 <script>
     function slides(){
-        let max = <?php echo getSlideNumbers();?>;
-        console.log(max);
-        for(let x=0;x<max,x++){
-            document.write(<?php echo displayNewsArticle(x);?>);
-            console.log("Running");
-            if(x == max-1){
-                x = -1;
-            }
-            setTimeout(slides,2000);
-        }
+
+        console.log("<?php echo session_id()?>")
+        document.getElementById('nH').content= "<?php echo $_SESSION["articles"]->getCurrentHeader() ?>";
+        document.getElementById('nI').src = "<?php echo $_SESSION["articles"]->getCurrentImage() ?>".replace(',','\\');
+        document.getElementById('nA').content = "<?php echo $_SESSION["articles"]->getCurrentAuthor() ?>";
+        document.getElementById('nT').content = "<?php echo $_SESSION["articles"]->getCurrentText() ?>";
+        console.log("<?php echo $_SESSION['articles']->next() ?>")
+        setTimeout(slides, 2000);
     }
     slides();
-    console.log("running");
 </script>
 
 </body>
